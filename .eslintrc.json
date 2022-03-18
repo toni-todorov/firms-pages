@@ -1,3 +1,29 @@
 {
-  "extends": "next/core-web-vitals"
+    "extends": "next/core-web-vitals",
+    "rules": {
+        "no-empty": "warn",
+        "no-extra-semi": "warn",
+        "no-undef": "error",
+        "no-use-before-define": "error",
+        "array-bracket-spacing": "warn",
+        "camelcase": "warn",
+        "comma-spacing": "warn",
+        "curly": "warn",
+        "react/react-in-jsx-scope": "off"
+    },
+    "parserOptions": {
+        "ecmaVersion": 2020,      // Use the latest ecmascript standard
+        "sourceType": "module",   // Allows using import/export statements
+        "ecmaFeatures": {
+            "jsx": true           // Enable JSX since we're using React
+        }
+    },
+    "settings": {
+        "react": {
+            "version": "detect"
+        }
+    },
+    "globals": {
+        "React": "writable"
+    }
 }
