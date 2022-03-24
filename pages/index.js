@@ -1,16 +1,25 @@
+import Link from 'next/link'
 import { useContextFirm } from '../context/firmContext'
 import styles from '../styles/Home.module.css'
 
-export default function Home() {
+const Home= () => {
     const { firms } = useContextFirm()
 
     return (
         <div className={styles.container}>
-            <ul className={styles.main}>
-                {firms && firms.map((i, index) => (
-                    <li key={index}>{i.firmname}</li>
-                ))}
-            </ul>
+            <main className={styles.main}>
+                <ul className={styles.ul}>
+                    {firms && firms.map(firm => (
+                        <li key={firm.firmid} className={styles.li}>
+                            <Link href={`/firm/${firm.firmid}`}>
+                                <a>{firm.firmname}</a>
+                            </Link>
+                        </li>
+                    ))}
+                </ul>
+            </main>
         </div>
     )
 }
+
+export default Home
